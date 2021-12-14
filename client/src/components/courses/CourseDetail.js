@@ -21,7 +21,6 @@ function CourseDetail() {
 
         context.data.getCourse(id)
         .then(response => {
-            console.log(response);
             setCourseDetail(response);
             setIsLoading(false);
         })
