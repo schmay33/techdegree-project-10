@@ -17,6 +17,7 @@ const UserSignUp = () => {
 
     const { from } = location.state || { from: { pathname: '/' } };
 
+    // Function to submit form and create user
     const submit = (e) => {
         e.preventDefault();
         const user = {
@@ -33,7 +34,6 @@ const UserSignUp = () => {
                 context.actions.signIn(emailAddress.current.value, password.current.value)
                 .then(response => {
                     if (response !== null && response.id) {
-                        //console.log(response);
                         navigate(from);
                       } else {
                         setErrors(response.message);
