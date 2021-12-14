@@ -49,12 +49,12 @@ function UpdateCourse() {
             estimatedTime: estimatedTime
         };
 
-        context.data.updateCourse(id, course, context.authenticatedUser.emailAddress, context.authenticatedUser.password)
+        context.data.updateCourse(id, course, context.authenticatedUser.emailaddress, context.authenticatedUser.password)
         .then((response) => {
             if (response.length) {
                 setErrors(response);
             } else {
-                navigate('/');
+                navigate(`/courses/${id}`);
             }
         })
         .catch((error) => {
@@ -78,19 +78,19 @@ function UpdateCourse() {
             <form onSubmit={submit}>
                 <div className="main--flex">
                     <div>
-                        <label for="courseTitle">Course Title</label>
+                        <label htmlFor="courseTitle">Course Title</label>
                         <input id="courseTitle" name="courseTitle" type="text" value={title} onChange={(e)=> {setTitle(e.target.value)}} />
 
                         <p>By {firstName} {lastName}</p>
 
-                        <label for="courseDescription">Course Description</label>
+                        <label htmlFor="courseDescription">Course Description</label>
                         <textarea id="courseDescription" name="courseDescription" value={description} onChange={(e)=> {setDescription(e.target.value)}}></textarea>
                     </div>
                     <div>
-                        <label for="estimatedTime">Estimated Time</label>
+                        <label htmlFor="estimatedTime">Estimated Time</label>
                         <input id="estimatedTime" name="estimatedTime" type="text" value={estimatedTime} onChange={(e)=> {setEstimatedTime(e.target.value)}}/>
 
-                        <label for="materialsNeeded">Materials Needed (<a href="https://commonmark.org/help/">Markdown</a>)</label>
+                        <label htmlFor="materialsNeeded">Materials Needed (<a href="https://commonmark.org/help/">Markdown</a>)</label>
                         <textarea id="materialsNeeded" name="materialsNeeded" value={materialsNeeded} onChange={(e)=> {setMaterialsNeeded(e.target.value)}}></textarea>
                     </div>
                 </div>
