@@ -43,7 +43,6 @@ export class Provider extends Component {
                     authenticatedUser: { ...user, ...{ password } }
                 };
             });
-            console.dir(this.state.authenticatedUser);
             Cookies.set('authenticatedUser', JSON.stringify(this.state.authenticatedUser), { expires: 1 });
         }
         return user;
