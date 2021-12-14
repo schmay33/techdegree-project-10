@@ -7,7 +7,6 @@ const PrivateRoute = () => {
   const authUser = context.authenticatedUser;
   const location = useLocation();
 
-  // Use Outlet to render the child element (which would be Create Course or Update Course component) if there's an authUser
   return authUser ? <Outlet /> : <Navigate to="/signin" state={{ from: location.pathname }} />
 }
 
