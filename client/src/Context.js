@@ -5,17 +5,17 @@ import Data from './Data';
 const Context = React.createContext();
 
 export class Provider extends Component {
-    //TODO: Setup state
+
     state = {
-        authenticatedUser: JSON.parse(Cookies.get('authenticatedUser')) || null,
+        authenticatedUser: Cookies.get('authenticatedUser') || null,
     };
-    //TODO: Constructor
+
     constructor() {
         super();
         this.data = new Data();
     }
 
-    //TODO: Render the value properties object
+    // Render the value properties object
     render() {
         const { authenticatedUser } = this.state;
         const value = {
@@ -38,9 +38,10 @@ export class Provider extends Component {
     signIn = async (username, password) => {
         const user = await this.data.getUser(username, password);
         if (user !== null && user.id) {
+            console.dir({ ...user, ...{ password } });
             this.setState(() => {
                 return {
-                authenticatedUser: { ...user, ...{ password } }
+                    authenticatedUser: { ...user, ...{ password } }
                 };
             });
             Cookies.set('authenticatedUser', JSON.stringify(this.state.authenticatedUser), { expires: 1 });
@@ -48,7 +49,7 @@ export class Provider extends Component {
         return user;
     }
     
-    //TODO: Create function signOut
+    // function signOut
     signOut = () => {
         this.setState({
             authenticatedUser: null,
