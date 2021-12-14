@@ -1,45 +1,31 @@
-import React from "react";
+import React, { useContext } from 'react';
+import Context from '../Context';
 import { Link } from 'react-router-dom';
 
-function Header(props) {
-  const isLoggedIn = props.user;
-  if (isLoggedIn) {
-    return (
-      <header>
-        <div className="wrap header--flex">
-          <h1 className="header--logo">
-            <Link to="/courses">Courses</Link>
-          </h1>
-          <nav>
+const Header = () => {
+  const context = useContext(Context.Context);
+  const authUser = context.authenticatedUser;
+  
+  return (
+    <header>
+      <div className="wrap header--flex">
+        <h1 className="header--logo"><Link to='/'>Courses</Link></h1>
+        <nav>
+          {authUser ?
             <ul className="header--signedin">
-              <li>Welcome, name!</li>
-              <li><a href="sign-out.html">Sign Out</a></li>
-              </ul>
-          </nav>
-        </div>
-      </header>
-    );
-  } else {
-    return (
-      <header>
-        <div className="wrap header--flex">
-          <h1 className="header--logo">
-            <Link to="/courses">Courses</Link>
-          </h1>
-          <nav>
-            <ul className="header--signedout">
-              <li>
-                <Link to='/users/UserSignUp'>Sign Up</Link>
-              </li>
-              <li>
-                <Link to='/users/UserSignIn'>Sign In</Link>
-              </li>
+              <li>Welcome, {authUser.firstName} {authUser.lastName}!</li>
+              <li><Link to='/signout'>Sign Out</Link></li>
             </ul>
-          </nav>
-        </div>
-      </header>
-    );
-  }
+            :
+            <ul className="header--signedout">
+              <li><Link to='/signup'>Sign Up</Link></li>
+              <li><Link to='/signin'>Sign In</Link></li>
+            </ul>
+          }
+        </nav>
+      </div>
+    </header>
+  )
 }
 
 export default Header;
