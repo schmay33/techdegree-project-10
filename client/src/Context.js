@@ -7,7 +7,7 @@ const Context = React.createContext();
 export class Provider extends Component {
 
     state = {
-        authenticatedUser: Cookies.get('authenticatedUser') || null,
+        authenticatedUser: JSON.parse(Cookies.get('authenticatedUser')) || null,
     };
 
     constructor() {
@@ -38,12 +38,12 @@ export class Provider extends Component {
     signIn = async (username, password) => {
         const user = await this.data.getUser(username, password);
         if (user !== null && user.id) {
-            console.dir({ ...user, ...{ password } });
             this.setState(() => {
                 return {
                     authenticatedUser: { ...user, ...{ password } }
                 };
             });
+            console.dir(this.state.authenticatedUser);
             Cookies.set('authenticatedUser', JSON.stringify(this.state.authenticatedUser), { expires: 1 });
         }
         return user;
