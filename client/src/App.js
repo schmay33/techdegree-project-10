@@ -16,6 +16,7 @@ import UnhandledError from './components/Errors/UnhandledError';
 import UserSignIn from './components/users/UserSignIn';
 import UserSignOut from './components/users/UserSignOut';
 import UserSignUp from './components/users/UserSignUp';
+import PrivateRoute from './PrivateRoute';
 
 function App() {
 	return (
@@ -26,9 +27,12 @@ function App() {
 			<Route path="/" element={<Navigate replace to="/courses" />} />
 			<Route path="/courses" element={<Courses />} />
 			<Route path="/courses/:id" element={<CourseDetail />} />
-			<Route path="/courses/:id/update" element={<UpdateCourse />} />
-			<Route path='/courses/create' element={<CreateCourse />} />
-
+			<Route path="/courses/:id/update" element={<PrivateRoute />} >	
+				<Route path="/courses/:id/update" element={<UpdateCourse />} />
+			</Route>
+			<Route path='/courses/create' element={<PrivateRoute />} >
+				<Route path='/courses/create' element={<CreateCourse />} />
+			</Route>
 			<Route path='/signin' element={<UserSignIn/>} />
 			<Route path="/signout" element={<UserSignOut />} />
 			<Route path="/signup" element={<UserSignUp />} />
