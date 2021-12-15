@@ -3,9 +3,9 @@
  ![Main Page](/screenshot.png?raw=true "Main Page")
 
 ## Contents
-- [Introduction](#Introduction)
-- [Getting Started](#Getting Started)
-- [Starting the Application](#Starting the Application)
+- [Introduction](#introduction)
+- [Getting Started](#getting-started)
+- [Starting the Application](#starting-the-application)
 
 
 ## Introduction
