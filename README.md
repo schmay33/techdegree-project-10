@@ -30,8 +30,8 @@ The client allwos users to create an account and sign in to make changes to the 
 
 You will need two terminal windows. One pointed at the client folder and one at the api folder. 
 
-From the api folder run `npm start` to start the REST API and begin listening on port `3000`.
+From the api folder run `npm start` to start the REST API and begin listening on port `5000`.
 
-From the client folder run `npm start` to start the React client. A new browser should open, if not navigate to [localhost:5000](http://localhost:5000).
+From the client folder run `npm start` to start the React client. A new browser should open, if not navigate to [localhost:5000](http://localhost:3000).
 
 
