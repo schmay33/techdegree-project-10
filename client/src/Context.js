@@ -7,7 +7,7 @@ const Context = React.createContext();
 export class Provider extends Component {
 
     state = {
-        authenticatedUser: JSON.parse(Cookies.get('authenticatedUser')) || null,
+        authenticatedUser: Cookies.get('authenticatedUser') ? JSON.parse(Cookies.get('authenticatedUser')) : null,
     };
 
     constructor() {
