@@ -22,8 +22,12 @@ function CourseDetail() {
 		context.data
 			.getCourse(id)
 			.then((response) => {
-				setCourseDetail(response);
-				setIsLoading(false);
+				if (response.message) {
+					navigate("/notfound");
+				} else {
+					setCourseDetail(response);
+					setIsLoading(false);
+				}
 			})
 			.catch((error) => {
 				console.log(error);
