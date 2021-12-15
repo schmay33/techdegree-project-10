@@ -4,8 +4,8 @@
 
 ## Contents
 - [Introduction](#Introduction)
-- [Getting Started](#GettingStarted)
-- [Starting the Application](#StartingtheApplication)
+- [Getting Started](#Getting Started)
+- [Starting the Application](#Starting the Application)
 
 
 ## Introduction
