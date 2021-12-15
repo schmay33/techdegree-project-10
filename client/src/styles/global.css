@@ -1,12 +1,13 @@
 /* CSS HEX */
 :root {
-	--primary: #01579b;
-	--primary-text: #ffffff;
-	--grey: #90caf9;
-	--light-grey: #F5F5F6;
+	--primary: #264653;
+	--primary-text: #E9C46A;
+	--compliment: #E76F51;
+	--compliment-other: #ffffff;
 	--brick-red: #c83e4dff;
-	--secondary: #5d99c6;
-	--secondary-text: #000000;
+	--secondary: #2A9D8F;
+	--secondary-text: #F4A261;
+	--text: black;
 }
 
 /* global.css */
@@ -18,7 +19,7 @@ html {
 }
 body {
 	font-family: "Work Sans", sans-serif;
-	background: var(--light-grey);
+	background: var(--compliment-other);
 }
 h2 {
 	font-size: 1.5rem;
@@ -65,12 +66,6 @@ header nav a {
 header nav a:hover {
 	color: var(--secondary);
 }
-a:not(.header--logo a, .button):hover {
-	color: var(--secondary);
-}
-a.button:hover {
-	color: var(--secondary-text);
-}
 .header--signedin li {
 	text-align: right;
 	line-height: 1.25;
@@ -87,19 +82,19 @@ a.button:hover {
 	display: block;
 }
 .course--label {
-	color: var(--secondary-text);
+	color: var(--compliment-other);
 	font-size: 0.9rem;
 	font-weight: 400;
 	margin-bottom: 0.25rem;
 }
 .course--title {
-	color: var(--secondary-text);
+	color: var(--compliment-other);
 	font-weight: 700;
 	font-size: 1.25rem;
 }
 .course--add--module {
-	background: var(--grey);
-	color: var(--secondary-text);
+	background: var(--secondary);
+	color: var(--compliment-other);
 	font-weight: 300;
 	font-size: 1.25rem;
 }
@@ -107,14 +102,14 @@ a.button:hover {
 	width: 20px;
 	height: auto;
 	margin-right: 5px;
-	fill: var(--secondary-text);
+	fill: var(--compliment-other);
 }
 .course--detail--title {
 	padding-bottom: 0.25rem;
-	border-bottom: 1px solid var(--grey);
+	border-bottom: 1px solid var(--text);
 	margin: 3rem 0 0.5rem;
 	font-size: 0.9rem;
-	color: var(--secondary-text);
+	color: var(--text);
 	text-transform: uppercase;
 	letter-spacing: 2px;
 }
@@ -122,7 +117,7 @@ a.button:hover {
 	font-size: 2rem;
 	margin-bottom: 0.5rem;
 	font-weight: 700;
-	color: var(--secondary-text);
+	color: var(--text);
 }
 .course--detail--list {
 	font-weight: 300;
@@ -135,7 +130,7 @@ a.button:hover {
 	margin: -2rem 0 2rem;
 }
 .validation--errors {
-	background: var(--grey);
+	background: var(--compliment);
 	padding: 1rem;
 	border-radius: 0.5rem;
 	margin-bottom: 2.5rem;
@@ -174,9 +169,9 @@ input,
 textarea {
 	display: block;
 	width: 100%;
-	color: var(--secondary-text);
+	color: var(--text);
 	border-radius: 0.5rem;
-	border: 1px solid var(--grey);
+	border: 1px solid var(--primary);
 	padding: 0.5rem;
 	margin-bottom: 1rem;
 	font-family: "Work Sans", sans-serif;
@@ -187,7 +182,7 @@ textarea {
 }
 .button {
 	background: var(--secondary);
-	color: var(--secondary-text);
+	color: var(--compliment-other);
 	font-size: 1rem;
 	padding: 0.75rem 1.5rem;
 	border: 0;
@@ -202,17 +197,24 @@ textarea {
 .button:last-child {
 	margin-bottom: 0;
 }
+a:not(.header--logo a, .button):hover {
+	color: var(--compliment-other);
+}
+a.button:hover {
+	color: var(--compliment-other);
+}
 .button:not(.button-secondary):hover {
 	box-shadow: 0 0 0 2px var(--primary) inset;
 	cursor: pointer;
 }
 .button-secondary {
-	color: var(--secondary-text);
+	color: var(--compliment-other);
 	background: var(--secondary);
 	transition: box-shadow 0.4s, color 0.4s, background .4s;
 }
 .button-secondary:hover {
 	box-shadow: 0 0 0 2px var(--primary) inset;
+	color: var(--compliment-other) !important;
 	cursor: pointer;
 }
 input:focus,
