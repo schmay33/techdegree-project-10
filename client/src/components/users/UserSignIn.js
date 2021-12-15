@@ -10,7 +10,8 @@ const UserSignIn = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
 
-	const { from } = location.state || { from: { pathname: "/" } };
+	
+	let { from } = location.state || { from: { pathname: "/" } };
 
 	const submit = (e) => {
 		e.preventDefault();
