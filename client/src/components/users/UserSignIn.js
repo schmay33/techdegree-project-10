@@ -1,6 +1,7 @@
 import React, { useRef, useState, useContext } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import Context from "../../Context";
+import { Alert, Container } from "react-bootstrap";
 
 const UserSignIn = () => {
 	const context = useContext(Context.Context);
@@ -9,6 +10,7 @@ const UserSignIn = () => {
 	const [errors, setErrors] = useState([]);
 	const navigate = useNavigate();
 	const location = useLocation();
+	const [show, setShow] = useState(false);
 
 	
 	let { from } = location.state || { from: { pathname: "/" } };
@@ -39,6 +41,7 @@ const UserSignIn = () => {
 				});
 		} else {
 			setErrors(errorList);
+			setShow(true);
 		}
 	};
 
@@ -50,13 +53,15 @@ const UserSignIn = () => {
 	return (
 		<div className="form--centered">
 			<h2>Sign In</h2>
-			{errors.length ? (
-				<div className="validation--errors">
-					<h3>Error!</h3>
-					<ul>
-						{errors.map((error, i) => <li key={i}>{error}</li>)}
-					</ul>
-				</div>
+			{show ? (
+				<Container>
+					<Alert variant="danger" onClose={() => setShow(false)} dismissible className="validation--errors">
+						<Alert.Heading>Validation Errors</Alert.Heading>
+						<ul>
+							{errors.map((error, i) => <li key={i}>{error}</li>)}
+						</ul>
+					</Alert>
+				</Container>
 			) : null}
 			<form onSubmit={submit}>
 				<label htmlFor="emailAddress">Email Address</label>

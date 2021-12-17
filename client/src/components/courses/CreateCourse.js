@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Context from "../../Context";
+import { Alert, Container } from "react-bootstrap";
 
 function CreateCourse() {
 	const context = useContext(Context.Context);
@@ -10,6 +11,7 @@ function CreateCourse() {
 	const [materialsNeeded, setMaterialsNeeded] = useState("");
 	const [estimatedTime, setEstimatedTime] = useState("");
 	const authUser = context.authenticatedUser;
+	const [show, setShow] = useState(false);
 
 	let navigate = useNavigate();
 	const location = useLocation();
@@ -30,6 +32,7 @@ function CreateCourse() {
 			.then((errors) => {
 				if (errors.length) {
 					setErrors(errors);
+					setShow(true);
 				} else {
 					navigate("/");
 				}
@@ -48,15 +51,17 @@ function CreateCourse() {
 	return (
 		<div className="wrap">
 			<h2>Create Course</h2>
-			{errors.length ? (
-				<div className="validation--errors">
-					<h3>Validation Errors</h3>
-					<ul>
-						{errors.map((error, i) => (
-							<li key={i}>{error}</li>
-						))}
-					</ul>
-				</div>
+			{show ? (
+				<Container>
+					<Alert variant="danger" onClose={() => setShow(false)} dismissible className="validation--errors">
+						<Alert.Heading>Validation Errors</Alert.Heading>
+						<ul>
+							{errors.map((error, i) => (
+								<li key={i}>{error}</li>
+							))}
+						</ul>
+					</Alert>
+				</Container>
 			) : null}
 
 			<form onSubmit={submit}>
