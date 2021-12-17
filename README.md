@@ -5,6 +5,7 @@
 ## Contents
 - [Introduction](#introduction)
 - [Getting Started](#getting-started)
+    - [Install Dependecies](#install-depencenies)
 - [Starting the Application](#starting-the-application)
 
 
@@ -17,16 +18,28 @@ Users can interact with the database by retrieving a list of courses, viewing de
 The client allwos users to create an account and sign in to make changes to the database.
 
 ## Getting Started
+
+### Install Dependencies
 1. Download Project File ZIP.
 2. Extract ZIP file to desired location.
 3. Navigate to extracted folder location `/api'.
-4. From the api folder run `npm install` to install dependencies.
-5. From the api folder run `npm run seed` to populate the database with default information.
+4. To install dependencies, from the api folder run: 
+```
+npm install
+``` 
+5. If you would like to load the database with default info, from the api folder run: 
+```
+npm run seed
+```
 6. Navigate to the client folder location '/client'.
-7. From the client folder run `npm install` to install dependencies.
-
+7. To install dependecies for the client, from the client folder run: 
+```
+npm install
+```
+---
 
 ## Starting the application
+
 
 You will need two terminal windows. One pointed at the client folder and one at the api folder. 
 
