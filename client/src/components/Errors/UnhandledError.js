@@ -1,12 +1,17 @@
-import React from 'react'
+import React from "react";
+import { Alert, Container } from "react-bootstrap";
 
 const UnhandledError = () => {
-  return (
-    <div className="wrap">
-        <h2>Error</h2>
-        <p>Sorry! We just encountered an unexpected error.</p>
-    </div>
-  )
-}
+	return (
+		<Container>
+			<Alert variant="danger">
+				<div className="wrap">
+					<h2>Error</h2>
+					<p>Sorry! We just encountered an unexpected error.</p>
+				</div>
+			</Alert>
+		</Container>
+	);
+};
 
-export default UnhandledError
+export default UnhandledError;
