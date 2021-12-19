@@ -196,7 +196,7 @@ textarea {
 	margin-bottom: 0;
 }
 a:not(.header--logo a, .button):hover {
-	color: var(--compliment-other);
+	color: var(--compliment);
 }
 a.button:hover {
 	color: var(--compliment-other);
