@@ -105,7 +105,8 @@ function CreateCourse() {
 						/>
 
 						<label htmlFor="materialsNeeded">
-							Materials Needed
+							Materials Needed (
+							<a href="https://commonmark.org/help/">Markdown</a>)
 						</label>
 						<textarea
 							id="materialsNeeded"
